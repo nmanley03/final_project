@@ -9,8 +9,8 @@ print(data)
 # Create filters by league
 pl = data.loc[data['league'] == 'Premier League']
 champ = data.loc[data['league'] == 'Championship']
-l1 = data.loc[data['league'] == 'League 1']
-l2 = data.loc[data['league'] == 'League 2']
+l1 = data.loc[data['league'] == 'EFL League One']
+l2 = data.loc[data['league'] == 'EFL League Two']
 
 # merge Premier league and Championship; merge League 1 and League 2
 top2 = pd.concat([pl, champ], axis=0)
@@ -24,13 +24,13 @@ pd.set_option('display.max_rows', None)
 print('Total minutes played per each nationality in the top tier of English professional football in 2020/21 season')
 print(nationalitydata)
 
-pl_scorers = pl[["full_name","goals_overall"]]
-print(pl_scorers.head(10))
-
 # Print the top scoring players from Republic of Ireland in League 1 and League 2
 
 #Filter bottom2 to only contain Irish players
 irish = bottom2.loc[bottom2['nationality'] == 'Republic of Ireland']
+
+scorers = irish[["full_name","goals_overall"]]
+print(scorers.sort_values(by='goals_overall', axis=0, ascending=False))
 
 #print(irish)
 #irishscorers = irish.groupby(['full_name'])['goals_overall'].sum()
