@@ -24,7 +24,7 @@ pd.set_option('display.max_rows', None)
 print('Total minutes played per each nationality in the top tier of English professional football in 2020/21 season')
 print(nationalitydata)
 
-pl_scorers = pl["full_name", "goals_overall"]
+pl_scorers = pl[["full_name", "goals_overall"]]
 pl_scorers.head(10)
 
 # Print the top scoring players from Republic of Ireland in League 1 and League 2
