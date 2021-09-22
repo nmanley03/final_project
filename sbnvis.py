@@ -1,10 +1,17 @@
+from datetime import datetime
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
 #import data file
 data = pd.read_csv(r"/Users/niallmanley/Downloads/Final_Project/202021Football1.csv")
-
+print(data)
+avgage = data['age'].mean()
+print(avgage)
+#Some players ages appearing as 0, as well as birthday field. Clean data and replace with avg age of 23.1
+data.loc[data['birthday'] == 0, 'age'] = 23
+print(data)
 
 # Create filters by league
 pl = data.loc[data['league'] == 'Premier League']
@@ -34,7 +41,7 @@ boolean = pl['Current Club'].isin(topfour_list)
 topfour_df = pl[boolean]
 print(topfour_df)
 
-#Print 4 charts showing the minutes played by each player in each of the top 4 teams
+#Print charts showing the minutes played by each player in each of the top 4 teams
 def graphsize():
     sns.set(rc={"figure.figsize":(5, 5)})
 

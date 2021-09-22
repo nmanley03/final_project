@@ -3,6 +3,10 @@ import numpy as np
 
 #import csv file
 data = pd.read_csv(r"/Users/niallmanley/Downloads/Final_Project/202021Football1.csv")
+avgage = data['age'].mean()
+print(avgage)
+#Some players ages appearing as 0, as well as birthday field. Clean data and replace 0 in age with avg age of 23
+data.loc[data['birthday'] == 0, 'age'] = 23
 
 #Function to filter data to Current Club column, and drop duplicates in order to print each different team
 teams = data['Current Club']

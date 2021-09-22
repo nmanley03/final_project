@@ -3,8 +3,10 @@ import pandas as pd
 
 # import csv
 data = pd.read_csv(r"/Users/niallmanley/Downloads/Final_Project/202021Football1.csv")
-
-#print(data)
+avgage = data['age'].mean()
+print(avgage)
+#Some players ages appearing as 0, as well as birthday field. Clean data and replace 0 in age with avg age of 23
+data.loc[data['birthday'] == 0, 'age'] = 23
 
 # Create filters by league
 pl = data.loc[data['league'] == 'Premier League']
@@ -46,12 +48,7 @@ scorers = irishscorers[["full_name","goals_overall"]]
 print('The Irish Players who have scored more than 5 goals in L1 or L2 this season are:')
 print(scorers.sort_values(by='goals_overall', axis=0, ascending=False))
 
-#The irish players
+#The irish players in L1 & L2 iterated
 for index, row in irishscorers.iterrows():
       print('The player ID ', index, ' refers to the Irish Player: ', row['full_name'])
 
-#print(irish)
-#irishscorers = irish.groupby(['full_name'])['goals_overall'].sum()
-#pd.set_option('display.max_rows', None)
-#print('Top scoring irish players in League 1 & League 2 in the 2020/21 season')
-#print(irishscorers)
