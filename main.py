@@ -5,7 +5,7 @@ import pandas as pd
 data = pd.read_csv(r"/Users/niallmanley/Downloads/Final_Project/202021Football1.csv")
 avgage = data['age'].mean()
 print(avgage)
-#Some players ages appearing as 0, as well as birthday field. Clean data and replace with avg age of 23.1
+#Some players ages appearing as 0, as well as birthday field. Clean data and replace with avg age of 23
 data.loc[data['birthday'] == 0, 'age'] = 23
 
 # print heads and info on dataframe
