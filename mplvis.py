@@ -78,7 +78,7 @@ plt.show()
 avggoal = forward_df.groupby(['Current Club'])['goals_overall'].mean().round(0)
 print(avggoal)
 
-#C
+#Show goals scored by position for top 4 clubs
 sns.catplot(x='Current Club', kind = 'count', palette='viridis', data=topfour_df, hue='position')
 plt.xlabel('team')
 plt.ylabel('goals scored')
