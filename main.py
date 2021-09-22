@@ -2,7 +2,7 @@
 import pandas as pd
 
 #import csv file
-data = pd.read_csv(r"/Users/niallmanley/Downloads/Final_Project/202021Football.csv")
+data = pd.read_csv(r"/Users/niallmanley/Downloads/Final_Project/202021Football1.csv")
 
 # print heads and info on dataframe
 print(data.head())

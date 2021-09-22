@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 import numpy as np
 
 #import data
@@ -40,8 +41,18 @@ for i,x in enumerate(ax):
         x.set_ylabel("Number of players", labelpad=50, weight='bold', size=12)
 plt.show()
 
-# Irish Players minutes played overall in PL vs age
-plt.plot('age', 'minutes_played_overall', "", data=pl, linestyle='', marker='o', markersize=5, alpha=0.09,  color="purple")
+# Minutes Players minutes played overall in PL vs age
+plt.scatter('age','minutes_played_overall', data=pl, marker="x", color="red")
+plt.title('Minutes played by Premier League Players vs Age')
+plt.xlabel('Age')
+plt.ylabel('Minutes played')
+plt.show()
+
+
+
+
+
+plt.scatter('age', 'minutes_played_overall', data=pl, color="#146870", marker='*', markersize=3, alpha=0.1)
 plt.xlabel('Age')
 plt.ylabel('Minutes Played')
 plt.title('Minutes played by Premier League Players vs Age', loc='left')
